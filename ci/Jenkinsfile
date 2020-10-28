@@ -5,10 +5,10 @@ pipeline {
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     sh '''
-                    node --version
-                    npm install -g newman
                     cd api/newman
-                    newman run examenfinalmod3.postman_collection.json -e heroku_exam.postman_environment.json               
+                    newman run examenfinalmod3.postman_collection.json -e heroku_exam.postman_environment.json 
+                    cd..
+                    cd..              
                     '''
                 }
             }
