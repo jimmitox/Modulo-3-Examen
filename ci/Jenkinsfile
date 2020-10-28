@@ -1,0 +1,18 @@
+pipeline {
+    agent any
+    stages {
+        stage('Newman Tests') {
+            steps {
+                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                    sh '''
+                    node --version
+                    cd api/newman
+                    newman run ExamenFinalMod3.postman_collection.json -e Heroku_Exam.postman_environment.json               
+                    '''
+                }
+            }
+        }
+
+
+    }
+}

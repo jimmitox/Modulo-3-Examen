@@ -1,0 +1,392 @@
+{
+	"info": {
+		"_postman_id": "24ce03fd-7998-40d5-abd8-2d2599464f75",
+		"name": "ExamenFinalMod3",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "statusPage",
+			"item": [
+				{
+					"name": "Status",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d29fc689-7eeb-44ad-8772-94a8e6bd859e",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Validate string is correct\",function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.status).to.eql(\"Listos para el examen\");",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/status",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"status"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Status Wrong Page",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a04c2e53-6158-4271-b037-1cdc1dda56ce",
+								"exec": [
+									"pm.test(\"Status code is 404 Not Found\", function () {",
+									"    pm.response.to.have.status(404);",
+									"});",
+									"",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/status2",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"status2"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "randomPage",
+			"item": [
+				{
+					"name": "randomNameAutentificated",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "25825380-6749-4db1-85ca-132f87463f6c",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"//Fetch fighter Value from response",
+									"bodyData = JSON.parse(responseBody)",
+									"fighter = bodyData.name",
+									"//console.log(fighter)",
+									"//Assigning to environment variable",
+									"pm.environment.set(\"fighter_name\", fighter);",
+									"",
+									"",
+									"var expectedValue = pm.variables.get(\"fighter_name\");",
+									"pm.test(`Fighter name is correct ${expectedValue}`, function () {",
+									"    var jsonData = pm.response.json();   ",
+									"    pm.expect(jsonData.name).to.eql(expectedValue);",
+									"});",
+									"",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "testpass",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "testuser",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/randomName",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"randomName"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "randomNameNoAutentification",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3e0401ce-a243-470f-8a24-413f22407ab5",
+								"exec": [
+									"pm.test(\"Access no authorized Error code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});",
+									"",
+									"pm.test(\"Validate message missing credentials\",function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.message).to.eql(\"Please login first\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/randomName",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"randomName"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "sameName",
+			"item": [
+				{
+					"name": "submitSameName",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "09c55891-ca3a-4e36-b722-eae052e81abd",
+								"exec": [
+									"pm.environment.set(\"fighter\", pm.variables.replaceIn('{{fighter_name}}'));"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "ebd0e431-f913-407b-96c6-c087e77043c5",
+								"exec": [
+									"pm.test(\"Status code Sucess is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"//Compare values of random name and same name",
+									"var expectedValue = pm.variables.get(\"fighter\");",
+									"pm.test(`Fighter is the same ${expectedValue}`, function () {",
+									"    var jsonData = pm.response.json();   ",
+									"    pm.expect(jsonData.name).to.eql(expectedValue);",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"{{fighter_name}}\"\n    \n   \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/sameName",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"sameName"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "updateName",
+			"item": [
+				{
+					"name": "updateNameSuccess",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "bd6779c2-31ed-4fbf-8385-538a100e7759",
+								"exec": [
+									"pm.environment.set(\"hola\", pm.variables.replaceIn('{{fighter_name}}'));"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "f0d85386-2cf9-4446-b9af-370b86dc2744",
+								"exec": [
+									"pm.test(\"Status code Sucess is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Welcome Fighter X\", function () {",
+									"  pm.expect(pm.response.json().name).to.eql(\"Hola\" + \" \"+ pm.environment.get(\"hola\"));",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"{{hola}}\"\n    \n   \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/updateName",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"updateName"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateNameNoBody",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "93f6958d-153f-4cab-a816-37328d56e6ef",
+								"exec": [
+									"pm.environment.set(\"hola\", pm.variables.replaceIn('{{fighter_name}}'));"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "2c280fc7-572c-4ca1-921c-37eff13fc71e",
+								"exec": [
+									"pm.test(\"Error Status code Failed is 406\", function () {",
+									"    pm.response.to.have.status(406);",
+									"});",
+									"",
+									"pm.test(\"Error message no name provided\",function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.message).to.eql(\"Name was not provided\");",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/updateName",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"updateName"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
