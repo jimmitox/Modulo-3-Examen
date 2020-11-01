@@ -19,7 +19,15 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1b7c6acb-0633-4f7b-a41b-1bafca65b571" name="Default Changelist" comment="" />
+    <list default="true" id="1b7c6acb-0633-4f7b-a41b-1bafca65b571" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/BaseTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/BaseTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/RandomTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/RandomTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/StatusTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/StatusTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/UpdateTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/UpdateTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ci/Jenkinsfile" beforeDir="false" afterPath="$PROJECT_DIR$/../../ci/Jenkinsfile" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -46,6 +54,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
   </component>
   <component name="RunManager" selected="TestNG./Users/jimmyandres/Modulo-3-Examen/api/rest_assured/src/test/resources/examen.testng.xml">
     <configuration name="RandomTest.FighterNameIsCorrect" type="TestNG" temporary="true" nameIsGenerated="true">
@@ -146,26 +155,30 @@
       <screen x="-1877" y="-104" width="1877" height="1057" />
     </state>
     <state x="-1777" y="-4" width="1677" height="857" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/-1877.-104.1877.1057/0.23.1280.777@-1877.-104.1877.1057" timestamp="1604112709076" />
-    <state width="1835" height="290" key="GridCell.Tab.0.bottom" timestamp="1604119946316">
-      <screen x="-1877" y="-104" width="1877" height="1057" />
+    <state width="1195" height="197" key="GridCell.Tab.0.bottom" timestamp="1604191988017">
+      <screen x="43" y="23" width="1237" height="777" />
     </state>
     <state width="1835" height="290" key="GridCell.Tab.0.bottom/-1877.-104.1877.1057/0.23.1280.777@-1877.-104.1877.1057" timestamp="1604119946316" />
     <state width="1238" height="198" key="GridCell.Tab.0.bottom/-1877.-104.1877.1057/0.23.1280.777@0.23.1280.777" timestamp="1603944032033" />
-    <state width="1835" height="290" key="GridCell.Tab.0.center" timestamp="1604119946315">
-      <screen x="-1877" y="-104" width="1877" height="1057" />
+    <state width="1195" height="197" key="GridCell.Tab.0.bottom/43.23.1237.777@43.23.1237.777" timestamp="1604191988017" />
+    <state width="1195" height="197" key="GridCell.Tab.0.center" timestamp="1604191988016">
+      <screen x="43" y="23" width="1237" height="777" />
     </state>
     <state width="1835" height="290" key="GridCell.Tab.0.center/-1877.-104.1877.1057/0.23.1280.777@-1877.-104.1877.1057" timestamp="1604119946315" />
     <state width="1238" height="198" key="GridCell.Tab.0.center/-1877.-104.1877.1057/0.23.1280.777@0.23.1280.777" timestamp="1603944032032" />
-    <state width="1835" height="290" key="GridCell.Tab.0.left" timestamp="1604119946314">
-      <screen x="-1877" y="-104" width="1877" height="1057" />
+    <state width="1195" height="197" key="GridCell.Tab.0.center/43.23.1237.777@43.23.1237.777" timestamp="1604191988016" />
+    <state width="1195" height="197" key="GridCell.Tab.0.left" timestamp="1604191988016">
+      <screen x="43" y="23" width="1237" height="777" />
     </state>
     <state width="1835" height="290" key="GridCell.Tab.0.left/-1877.-104.1877.1057/0.23.1280.777@-1877.-104.1877.1057" timestamp="1604119946314" />
     <state width="1238" height="198" key="GridCell.Tab.0.left/-1877.-104.1877.1057/0.23.1280.777@0.23.1280.777" timestamp="1603944032031" />
-    <state width="1835" height="290" key="GridCell.Tab.0.right" timestamp="1604119946316">
-      <screen x="-1877" y="-104" width="1877" height="1057" />
+    <state width="1195" height="197" key="GridCell.Tab.0.left/43.23.1237.777@43.23.1237.777" timestamp="1604191988016" />
+    <state width="1195" height="197" key="GridCell.Tab.0.right" timestamp="1604191988017">
+      <screen x="43" y="23" width="1237" height="777" />
     </state>
     <state width="1835" height="290" key="GridCell.Tab.0.right/-1877.-104.1877.1057/0.23.1280.777@-1877.-104.1877.1057" timestamp="1604119946316" />
     <state width="1238" height="198" key="GridCell.Tab.0.right/-1877.-104.1877.1057/0.23.1280.777@0.23.1280.777" timestamp="1603944032032" />
+    <state width="1195" height="197" key="GridCell.Tab.0.right/43.23.1237.777@43.23.1237.777" timestamp="1604191988017" />
     <state x="-1616" y="-36" key="Maven.ArtifactSearchDialog" timestamp="1604111698599">
       <screen x="-1877" y="-104" width="1877" height="1057" />
     </state>

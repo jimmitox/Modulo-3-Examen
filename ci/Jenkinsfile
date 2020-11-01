@@ -11,7 +11,16 @@ pipeline {
                 }
             }
         }
-
+stage('Rest Assured Tests') {
+            steps {
+                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                    sh '''
+                    cd api/rest_assured
+                    newman run ExamenFinalMod3.postman_collection.json -e Heroku_Exam.postman_environment.json              
+                    '''
+                }
+            }
+        }
 
     }
 }
