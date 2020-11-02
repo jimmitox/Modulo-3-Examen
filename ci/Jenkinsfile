@@ -23,13 +23,12 @@ stage('Rest Assured Tests') {
         }
 stage('Jmeter Tests') {
             steps {
-                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     sh '''
                     cd load
                    export PATH=/home/pjcalvov/jmeter/apache-jmeter-5.3/bin:$PATH
                    jmeter -n -t ExamenLoadTests.jmx
                     '''
-                }
+                
             }
         }
 
