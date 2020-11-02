@@ -1,0 +1,2 @@
+# JMeter generated Authorization file
+https://api-coffee-testing.herokuapp.com/v1/examen/randomName	testuser	testpass			BASIC
